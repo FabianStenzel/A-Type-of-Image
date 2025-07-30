@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>A Type of Image</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/tester.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favs/fav.ico" />
+  </head>
+  <body>
+    <!-- <header>
+      <a class="logo" href="index.html">A Type of Image</a>
+      <a class="test it" href="test-it.html" style="opacity: 1">Test it</a>
+      <a class="about" href="about.html">About</a>
+    </header> -->
+
+    <main>
+      <div class="inputControlsLeft invisible controls" id="inputControlsLeft">
+        <ul id="textBoxSettings">
+          <h2 id="textBoxSettingsHeadline">Textboxes</h2>
+          <li class="buttonContainer">
+            <button id="buttonActivateBuffer" onclick="addTextBox()">
+              Add
+            </button>
+            <button id="buttonRemoveBuffer" onclick="removeTextBox()">
+              Remove
+            </button>
+          </li>
+
+          <!-- <li class="flexContainer">
+  
+              
+                  <p>Width</p>
+  
+                  <input
+                    id="inputTextBoxWidth"
+                    type="number"
+                   
+                    value=""
+                  /> 
+  
+                <input
+                  id="sliderTextBoxWidth"
+                  type="range"
+                  min="0"
+                  max="2000"
+                  value="800"
+                  step="1"
+                />
+              </li>
+              <li class="flexContainer">
+                  <p>Height</p>
+  
+                  <input
+                    id="inputTextBoxHeight"
+                    type="number"
+                  
+                    value=""
+                  />
+  
+                <input
+                  id="sliderTextBoxHeight"
+                  type="range"
+                  min="0"
+                  max="2000"
+                  value="400"
+                  step="1"
+                 
+                />
+              </li> -->
+
+          <li class="flexContainer">
+            <p>Font Size</p>
+
+            <div class="sliderContainer">
+              <input id="inputTextSize" type="number" value="" />
+
+              <input
+                id="sliderTextSize"
+                type="range"
+                min="0"
+                max="1000"
+                value="400"
+                step="0.25"
+              />
+            </div>
+          </li>
+          <li class="flexContainer">
+            <p>Line Height</p>
+
+            <div class="sliderContainer">
+              <input id="inputLineHeight" type="number" value="" />
+              <input
+                id="sliderLineHeight"
+                type="range"
+                min="0"
+                max="1000"
+                value="400"
+                step="0.25"
+              />
+            </div>
+          </li>
+          <li class="buttonContainer">
+            <button
+              id="leftBtn"
+              onclick="toggleLeft()"
+              style="
+                background-color: var(--black);
+                color: var(--lightgray);
+                outline-color: var(--black);
+              "
+            >
+              Left Align
+            </button>
+            <button id="centerBtn" onclick="toggleCenter()">
+              Center Align
+            </button>
+            <button id="rightBtn" onclick="toggleRight()">Right Align</button>
+          </li>
+
+          <li class="buttonContainer">
+            <input
+              type="file"
+              id="font-selector"
+              accept=".otf, .woff, .ttf, .eot"
+              hidden
+            />
+            <label for="font-selector" id="fontUploadContainer">
+              <div>Change Font</div>
+            </label>
+
+            <button id="printButton" onclick="saveImage()">Save SVG</button>
+          </li>
+        </ul>
+
+        <ul id="dotModeSettings">
+          <h2 id="imageSettingsHeadline">Grid dots</h2>
+
+          <li class="buttonContainer">
+            <button
+              id="stepBtn"
+              style="
+                background-color: var(--black);
+                color: var(--lightgray);
+                outline-color: var(--black);
+              "
+              onclick="toggleStep()"
+            >
+              <div>Brightness Manual</div>
+            </button>
+
+            <button id="autoBtn" onclick="toggleAuto()">
+              <div>Brightness Auto</div>
+            </button>
+
+            <button id="colorModeBtn" onclick="toggleColorMode()">
+              <div>RGB Manual</div>
+            </button>
+          </li>
+
+          <ul id="stepSettings">
+            <li class="flexContainer">
+              <p>Thresholds</p>
+
+              <div class="doubleSliderContainerOutside">
+                <input id="inputBrightnessThreshhold2" type="number" value="" />
+                <input id="inputBrightnessThreshhold" type="number" value="" />
+
+                <div class="doubleSliderContainer sliderThreshhold">
+                  <input
+                    id="backgroundSlider"
+                    type="range"
+                    min="0"
+                    max="255"
+                    value="30"
+                    step="0.25"
+                  />
+                  <input
+                    id="sliderBrightnessThreshhold"
+                    type="range"
+                    min="0"
+                    max="255"
+                    value="240"
+                    step="0.25"
+                  />
+                  <input
+                    id="sliderBrightnessThreshhold2"
+                    type="range"
+                    min="0"
+                    max="255"
+                    value="30"
+                    step="0.25"
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>Dark Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputSizeDot3" type="number" value="" />
+
+                <input
+                  id="sliderSizeDot3"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="30"
+                  step="0.25"
+                />
+              </div>
+            </li>
+            <li class="flexContainer">
+              <p>Medium Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputSizeDot2" type="number" value="" />
+
+                <input
+                  id="sliderSizeDot2"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="30"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>Light Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputSizeDot1" type="number" value="" />
+
+                <input
+                  id="sliderSizeDot1"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="30"
+                  step="0.25"
+                />
+              </div>
+            </li>
+          </ul>
+
+          <ul id="autoSettings" style="display: none">
+            <li class="flexContainer">
+              <p>Size Contrast</p>
+
+              <div class="sliderContainer">
+                <input id="inputGrayscale" type="number" value="" />
+
+                <input
+                  id="sliderGrayscale"
+                  type="range"
+                  min="1"
+                  max="255"
+                  value="100"
+                  step="1"
+                />
+              </div>
+            </li>
+          </ul>
+
+          <ul id="colorModeSettings" style="display: none">
+            <li class="flexContainer">
+              <p>R Threshold</p>
+
+              <div class="sliderContainer">
+                <input id="inputRTh" type="number" value="" />
+                <input
+                  id="sliderRTh"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>G Threshold</p>
+
+              <div class="sliderContainer">
+                <input id="inputGTh" type="number" value="" />
+                <input
+                  id="sliderGTh"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>B Threshold</p>
+
+              <div class="sliderContainer">
+                <input id="inputBTh" type="number" value="" />
+                <input
+                  id="sliderBTh"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>R Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputRSize" type="number" value="" />
+                <input
+                  id="sliderRSize"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>G Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputGSize" type="number" value="" />
+                <input
+                  id="sliderGSize"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+
+            <li class="flexContainer">
+              <p>B Size</p>
+
+              <div class="sliderContainer">
+                <input id="inputBSize" type="number" value="" />
+                <input
+                  id="sliderBSize"
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="100"
+                  step="0.25"
+                />
+              </div>
+            </li>
+          </ul>
+
+          <ul id="otherDotSettings">
+            <li class="buttonContainer">
+              <button id="bwBtn" onclick="toggleBW()">
+                <div>Grayscale</div>
+              </button>
+
+              <button
+                id="colorBtn"
+                onclick="toggleColor()"
+                style="
+                  background-color: var(--black);
+                  color: var(--lightgray);
+                  outline-color: var(--black);
+                "
+              >
+                <div>Colors</div>
+              </button>
+            </li>
+
+            <li class="buttonContainer">
+              <button
+                id="ellipseBtn"
+                onclick="toggleEllipse()"
+                style="
+                  background-color: var(--black);
+                  color: var(--lightgray);
+                  outline-color: var(--black);
+                "
+              >
+                <div>Ellipse</div>
+              </button>
+
+              <button id="rectBtn" onclick="toggleRect()">
+                <div>Rectangle</div>
+              </button>
+            </li>
+
+            <li class="flexContainer">
+              <p>Dot Gap</p>
+
+              <div class="sliderContainer">
+                <input id="inputTileGap" type="number" value="" />
+
+                <input
+                  id="sliderTileGap"
+                  type="range"
+                  min="1"
+                  max="60"
+                  value="4"
+                  step="1"
+                />
+              </div>
+            </li>
+          </ul>
+        </ul>
+
+        <ul id="imageSettingsContainer">
+          <h2 id="imageSettingsHeadline">Image</h2>
+          <li class="buttonContainer">
+            <button id="buttonImageOn" onclick="toggleImageVisibilityOn()">
+              <div>Show Image</div>
+            </button>
+
+            <button
+              id="buttonImageOff"
+              onclick="toggleImageVisibilityOff()"
+              style="
+                background-color: var(--black);
+                color: var(--lightgray);
+                outline-color: var(--black);
+              "
+            >
+              <div>Hide Image</div>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="canvasContainer"
+        onmousemove="getCursor(event)"
+        id="canvasContainer"
+      >
+        <div class="positionContainer" id="positionContainer">
+          <div
+            id="clickHelper"
+            style="
+              background-color: transparent;
+              position: absolute;
+              z-index: 1;
+            "
+          ></div>
+
+          <div id="uploadContainer">
+            <div id="dropZone" ondrop="handleFileDrop(event)"></div>
+
+            <div
+              id="welcomeText"
+              style="
+                font-size: 1.5rem;
+                text-align: center;
+                white-space: normal;
+                line-height: 1.3;
+              "
+            >
+              Compose a digital fusion between<br />
+              typography and imagery – A Type of Image.
+            </div>
+            <div id="uploadBtns">
+              <button
+                style="
+                  width: 200px;
+                  z-index: 999;
+                  background-color: var(--black);
+                  color: var(--lightgray);
+                  outline-color: var(--black);
+                "
+                ondrop="handleFileDrop(event)"
+                onclick="handleDemoFile()"
+              >
+                <div>Use Demo Image</div>
+              </button>
+
+              <div ondrop="handleFileDrop(event)">or</div>
+
+              <input
+                style="z-index: 999"
+                type="file"
+                id="file-selector"
+                accept=".jpg, .jpeg, .png"
+                hidden
+              />
+              <label
+                for="file-selector"
+                style="width: 200px; z-index: 999"
+                ondrop="handleFileDrop(event)"
+              >
+                <div>Upload Image (max 1MB)</div>
+              </label>
+            </div>
+          </div>
+
+          <div
+            class="loader-container"
+            id="loader-container"
+            style="display: none"
+          >
+            <div class="pulsing-circle"></div>
+          </div>
+          <ul class="textAreas" id="textAreas"></ul>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+
+  <script src="assets/js/P5JS/p5_1_6.js"></script>
+  <script src="assets/js/Test_it/test_generation.js"></script>
+  <script src="assets/js/animations/cursorPosition.js"></script>
+  <script src="assets/js/Test_it/test_textboxes.js"></script>
+  <script src="assets/js/animations/interface_animations.js"></script>
+  <script src="https://unpkg.com/p5.js-svg@1.5.1"></script>
+</html>

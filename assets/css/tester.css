@@ -1,0 +1,725 @@
+/* –––––––––––– COLORS*/
+:root {
+  --lightgray: #f0f0f0;
+  --middlegray: #b9b9b9;
+  --white: #ffffff;
+  --black: #202020;
+ --background: #1e1e1e;
+ --selectionBackground: transparent;
+}
+
+/* –––––––––––– SITE STYLES*/
+
+
+
+
+  html{
+    overflow: hidden;
+    line-height: 1;
+    font-size:13px;
+  }
+  body{
+    background-color: var(--lightgray);
+    height: 100vh;
+    width: 100vw;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-smooth: always;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  }
+
+
+  h2 {
+    font-weight: bold;
+    text-align: left;
+    cursor: default;
+    font-size: 1.2rem;
+    width:350px;
+    text-transform: uppercase;
+  }
+
+
+  .doubleSliderContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+ margin-bottom: 24px;
+}
+
+.buttonContainer{
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+
+  p {
+    cursor:default;
+  }
+
+/* –––––––––––– HEADER STYLES */
+
+a{
+  color: var(--black);
+  opacity: 0.7;
+}
+a:hover{
+  color: var(--black);
+  opacity:1;
+}
+
+header{
+  display: flex;
+  color: black;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+
+  height: 5vh;
+  align-items: center;
+  margin: 2vh 0 4vh 0;
+}
+
+.siteNav{
+  color: var(--black);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+}
+
+/* –––––––––––– BODY STYLES */
+main{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: start;
+  overflow: hidden;
+
+}
+
+main ul {
+  width: 100%;
+}
+
+.canvasContainer{ 
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    object-fit: contain;
+    overflow: hidden;
+} 
+
+.p5Canvas {
+  display: block;
+  position: relative;
+  border-width: 10px;
+  border: none;
+  z-index: 0;
+  overflow: hidden;
+  
+  height: 100px;
+  width: 10px;
+  top: 0;
+  left: 0;
+}
+
+textarea {
+
+  z-index: 100;
+  opacity: 100%;
+  outline: none;
+  position: absolute;
+  background-color: transparent;
+  color:transparent;
+  caret-color: var(--black);
+  resize:none;
+  overflow:hidden;
+  padding-top: 100px;
+  margin:0;
+  cursor: pointer;
+  text-align: center;
+
+}
+
+textarea::selection{
+  background: var( --selectionBackground);
+}
+
+.selectionColor::selection{
+  background-color:rgba(209, 208, 208, 0.351) !important;
+}
+
+
+textarea:hover{
+  opacity: 100%;
+}
+textarea:focus{
+  opacity: 100%;
+}
+
+
+.textAreas{
+
+  position: absolute;
+  display: flex;
+  z-index:8;
+
+  
+}
+
+/* –––––––––––– ImageUpload Styles */
+
+
+#welcomeText {
+  font-size: 7rem;
+  text-align: left;
+   white-space: normal;
+    line-height: 1.2
+}
+
+#uploadContainer { 
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: flex-start;
+ height: 100dvh;
+ width: 100vw;
+ padding: 48px;
+ top:0;
+ left: 0;
+}
+
+#uploadBtns{
+  display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap: 24px;
+ width: 100%;
+ height: 100%;
+}
+#uploadBtns button, #uploadBtns label{
+width: 300px;
+height: 60px;
+}
+#uploadBtns >* {
+  font-size: 1.5rem;
+}
+
+
+
+#dropZone {
+  border: 2px dashed;    
+  border-color: transparent;
+  width: 90vw;
+  height: 90vh;
+  top: 5vh;
+  left: 5vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+}
+
+#uploadContainer span {
+  font-size: 1.7rem;
+}
+
+.visible{
+  opacity: 100%;
+  display: "" !important;
+}
+.invisible{
+  opacity: 0% ;
+  display: none !important;
+}
+
+input[type=file]::file-selector-button {
+  background-color: var(--black);
+  visibility: hidden;
+  }
+  
+  input[type=file]{
+    display: flex;
+    z-index: 20;
+    display: none;
+    visibility: hidden;
+  }
+
+  .markzone{
+    transition-property:border-color, color;
+    transition-duration: 0.3s;
+ 
+     border: 2px dashed;    
+     border-color: var(--black) !important;
+    cursor: copy !important;
+    color: transparent;
+    z-index: 1000;
+    
+  }
+
+  .markBtns{
+    transition-property:opacity;
+    transition-duration: 0.3s;
+    opacity: 0%;
+
+  }
+
+  .markzone:hover {
+    cursor:copy !important;
+  }
+
+  .opacity100 {
+    opacity: 100%;
+  }
+  
+
+/* –––––––––––– FontUpload Styles */
+
+#fontUploadContainer:hover{
+  cursor:copy;
+}
+
+
+/* –––––––––––– INPUT STYLES */
+
+.mb{
+  margin-bottom: 2vh;
+}
+.mt{
+  margin-bottom: 2vh;
+}
+.mbbtn{
+  margin-bottom: 5vh !important;
+}
+
+
+
+.inputControlsLeft{
+  z-index: 999;
+ 
+}
+
+.controls {
+  color: var(--black);
+  overflow-y: scroll;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 48px;
+  height: 100%;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  padding-right: 12px;
+  scrollbar-color: var(--black);
+  scrollbar-width: thin;
+
+  }
+
+  .controls ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+
+.inputControls{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: end;
+
+}
+
+  .controls ul h2 {
+    margin-bottom: 16px;
+  }
+  
+.controls > * {
+  display: flex;
+  width: 100%;
+}
+
+p{
+white-space: nowrap;
+width: 30%;
+font-size:1rem;
+padding: 0;
+margin: 0;
+}
+
+.sliderThreshhold{
+position: relative;
+}
+
+#sliderBrightnessThreshhold, 
+#sliderBrightnessThreshhold2{
+  background: transparent !important;
+}
+
+#sliderBrightnessThreshhold, 
+#sliderBrightnessThreshhold2,
+#backgroundSlider{
+position: absolute;
+width: 100%;
+pointer-events: none;
+
+}
+
+ input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    background: var(--black);
+    outline: none;
+    opacity: 1;
+    transition: color 0.3s ease;
+    appearance: none;
+      z-index: 100;
+  }
+  
+  /* Mouse-over effects */
+  input[type=range]:hover {
+    opacity: 1; 
+    cursor: pointer;
+
+  }
+  input[type=range]::-moz-range-thumb:hover ~ p{
+    cursor: pointer;
+  }
+  
+  
+  
+  input[type=range]::-moz-range-thumb{
+    width: 50px;
+  height: 20px;
+  border: 0;
+  background:transparent;
+  border: none;
+  opacity: 1;
+  border-radius: 15px;
+  pointer-events: all;
+  cursor: grab;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition: 0.2s ease;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 50px;
+  height: 20px;
+  border: 0;
+  background:transparent;
+  border: none;
+  opacity: 1;
+  border-radius: 15px;
+  pointer-events: all;
+  cursor: grab;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition: 0.2s ease;
+  }
+
+
+  #backgroundSlider::-moz-range-thumb,
+  #backgroundSlider::-webkit-slider-thumb{
+    background: transparent !important;
+    display: none !important;
+    border: none !important;
+  }
+
+  input[type=range]::-moz-range-thumb:hover, 
+  input[type=range]::-moz-range-thumb:active{
+    cursor: pointer;
+    background-color: var(--black);
+    }
+  
+
+    input[type=range]::-webkit-slider-thumb:hover,
+     input[type=range]::-webkit-slider-thumb:active  {
+    cursor: pointer;
+    background-color: var(--black);
+    }
+  
+
+
+  button,
+  label {
+    width: 100%;
+    font-size: 1rem;
+    height: 32px;
+    padding: 0px;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition-property: background-color, color;
+    transition: 0.2s ease;
+    color: var(--black);
+   border: none;
+   outline: solid 1px var(--black);
+   outline-offset: -0.5px;
+   vertical-align: middle;
+   cursor: pointer;
+   box-shadow: none;
+   overflow: hidden;
+
+}
+
+
+
+button:hover,
+label:hover{
+  cursor: pointer;
+}
+
+button:active {
+background-color: rgb(82, 82, 82);
+color: var(--lightgray);
+outline-color: rgb(82, 82, 82);
+}
+
+
+
+
+.bufferControls{
+display: flex;
+width: 100%;
+justify-content: end;
+gap: 40px;
+}
+@media print{
+
+.bufferControls{display:none;}
+}
+
+
+#textBoxSettingsContainer{
+  transition-property:height;
+    transition-duration: 0.3s;
+
+}
+
+/* Slider Interaction */
+
+.activeText{
+  opacity: 1 !important;
+  color: black !important;
+}
+.activeSlider{
+  opacity: 1 !important;
+  background: white !important;
+}
+
+.activeSlider::-webkit-slider-thumb {
+  background: gray !important;
+  opacity: 1;
+}
+
+.activeSlider::-moz-range-thumb {
+  background: gray !important;
+  opacity: 1;
+}
+
+
+
+/* Slider */
+
+.sliderContainer,
+.doubleSliderContainerOutside{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+
+.line {
+  background-color: var(--black);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+}
+
+.thumb {
+position: absolute;
+background-color: transparent;
+display: flex;
+align-items: center;
+border-radius: 30px;
+
+
+}
+
+.thumb:hover{
+  background-color: gray;
+}
+
+input[type=number]{
+  width: 50px;
+  pointer-events: none;
+  font-size: 1rem;
+  height: 20px;
+  position: absolute;
+  border-radius: 30px;
+  background-color: var(--lightgray);
+  color: var(--black);
+  text-align:center;
+  line-height: 1;
+  outline: none;
+  border: solid 1px var(--black);
+  opacity: 1;
+  z-index: 1000;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+ 
+  cursor: pointer;
+  user-select: auto !important;
+
+}
+
+.thumbColor{
+  color: var(--lightgray) !important;
+  background-color: var(--black) !important;
+  transition-property: color, background-color;
+  transition-duration: 0.2s ;
+
+}
+
+
+
+
+@media only screen and (max-width: 1440px) {
+  #welcomeText {
+    font-size: 5rem;
+    text-align: left;
+     white-space: normal;
+      line-height: 1.2
+  }
+  
+  #uploadContainer { 
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
+   height: 100dvh;
+   width: 100vw;
+   padding: 24px;
+   top:0;
+   left:0;
+  }
+  
+  #uploadBtns{
+    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: 24px;
+   width: 100%;
+   height: 100%;
+  }
+  #uploadBtns button, #uploadBtns label{
+  width: 250px;
+  height: 50px;
+  }
+  #uploadBtns >* {
+    font-size: 1.3rem;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 900px) {
+html{
+  font-size: 14px;
+}
+body{
+  padding:0;
+}
+ main{
+  flex-direction: column-reverse;
+ align-items: center;
+ gap: 5vw;
+ }
+
+ #inputControlsLeft{
+  width: 100%;
+  padding: 5vw;
+ }
+
+
+ #welcomeText {
+  font-size: 3rem;
+  text-align: left;
+   white-space: normal;
+    line-height: 1.2
+}
+
+#uploadContainer { 
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: flex-start;
+ height: 100dvh;
+ width: 100vw;
+ padding: 24px;
+ top:0;
+ left: 0;
+}
+
+#uploadBtns{
+  display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap: 24px;
+ width: 100%;
+ height: 100%;
+}
+#uploadBtns button, #uploadBtns label{
+width: 200px;
+height: 50px;
+}
+#uploadBtns >* {
+  font-size: 1rem;
+}
+}
